@@ -12,19 +12,19 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 
 import spark.Request;
-import spark.Response;
 import spark.Spark;
 
 public class App {
 	public static void main(String[] args) {
 		String ip = JOptionPane.showInputDialog(null, "Digite o IP de sua máquina", "127.0.0.1");
 		Spark.staticFiles.location("/public");
-		// ipAddress("192.168.25.15");
+		
 		ipAddress(ip);
+		get("/", (req, res) -> "/teste, /atributos, /hello.html");
 		get("/teste", (req, res) -> "HELLO");
 		get("/atributos", (req, res) -> atributos(req));
 		try {
-			Desktop.getDesktop().browse(new URI("http://" + ip + ":4567/hello.html"));
+			Desktop.getDesktop().browse(new URI("http://" + ip + ":4567"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,10 +38,14 @@ public class App {
 
 		Set<String> params = req.queryParams();
 
+		if (params.size() == 0) {
+			return "Adicione parametros para o url";
+		}
+		
 		StringBuilder sb = new StringBuilder();
 
 		for (String string : params) {
-			sb.append("PARAMETRO: " + string + "\t\tATRIBUTO: " + req.queryParams(string));
+			sb.append("parametro: " + string + "\t\tatributo: " + req.queryParams(string));
 			sb.append("\t\t");
 		}
 
