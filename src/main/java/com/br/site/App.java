@@ -20,7 +20,7 @@ public class App {
 		Spark.staticFiles.location("/public");
 		
 		ipAddress(ip);
-		get("/", (req, res) -> "/teste, /atributos, /hello.html");
+		get("/", (req, res) -> "/teste, /atributos, /speech.html, /texto.txt");
 		get("/teste", (req, res) -> "HELLO");
 		get("/atributos", (req, res) -> atributos(req));
 		try {
