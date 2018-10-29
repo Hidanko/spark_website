@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.br</groupId>
-	<artifactId>site</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>spark_teste</artifactId>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>site</name>
+	<name>Spark_website</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -23,9 +23,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.sparkjava</groupId>
-			<artifactId>spark-core</artifactId>
-			<version>2.5</version>
+    		<groupId>com.sparkjava</groupId>
+    			<artifactId>spark-core</artifactId>
+    			<version>2.8.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
